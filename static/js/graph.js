@@ -3,10 +3,10 @@ queue()
     .defer(d3.json, "/donorsUS/states")
    .await(makeGraphs);
 
-function makeGraphs(error, projectsJson, stateJSON) {
+function makeGraphs(error, projectsJson, statesJSON) {
 
-    var statesJSON = stateJSON;
-    
+    var stateJson = statesJSON;
+
    //Clean projectsJson data
    var donorsUSProjects = projectsJson;
    var dateFormat = d3.time.format("%Y-%m-%d %H:%M:%S");
@@ -66,12 +66,13 @@ function makeGraphs(error, projectsJson, stateJSON) {
 
    //Charts
    var timeChart = dc.barChart("#time-chart");
+   var dollarChart = dc.lineChart
    var resourceTypeChart = dc.rowChart("#resource-type-row-chart");
    var povertyLevelChart = dc.rowChart("#poverty-level-row-chart");
    var numberProjectsND = dc.numberDisplay("#number-projects-nd");
    var totalDonationsND = dc.numberDisplay("#total-donations-nd");
    var fundingStatusChart = dc.pieChart("#funding-chart");
-   var usChart = dc.geoChoroplethChart("#us-chart");
+   var statesChart = dc.geoChoroplethChart("#usa-map-chart");
 
 
    selectField = dc.selectMenu('#menu-select')
@@ -128,23 +129,31 @@ function makeGraphs(error, projectsJson, stateJSON) {
        .dimension(fundingStatus)
        .group(numProjectsByFundingStatus);
 
-   usChart.width(1000)
-        .height(330)
-        .dimension(stateDim)
-        .group(totalDonationsByState)
-        .colors(["#E2F2FF", "#C4E4FF", "#9ED2FF", "#81C5FF", "#6BBAFF", "#51AEFF", "#36A2FF", "#1E96FF", "#0089FF", "#0061B5"])
-        .colorDomain([0, max_state])
-        .overlayGeoJson(statesJson.features, "state", function (d) {
+
+
+
+    statesChart
+       .width(1000)
+       .height(330)
+       .dimension(stateDim)
+       .group(totalDonationsByState)
+       .colors(["#E2F2FF", "#C4E4FF", "#9ED2FF", "#81C5FF", "#6BBAFF", "#51AEFF", "#36A2FF", "#1E96FF", "#0089FF", "#0061B5"])
+       .colorDomain([0, max_state])
+        .overlayGeoJson(stateJson["features"], "state", function (d) {
             return d.properties.name;
-        })
-        .projection(d3.geo.albersUsa()
+       })
+       .projection(d3.geo.albersUsa()
                 .scale(600)
                 .translate([340, 150]))
-        .title(function (p) {
-            return "State: " + p["key"]
-                + "\n"
-                + "Total Donations: " + Math.round(p["value"]) + " $";
-    })
+       .title(function (p) {
+           return "State: " + p["key"]
+               + "\n"
+               + "Total Donations: " + Math.round(p["value"]) + " $";
+   })
+
+
+
+
 
    dc.renderAll();
 }
