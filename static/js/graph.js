@@ -44,6 +44,9 @@ function makeGraphs(error, projectsJson, statesJSON) {
 
    //Calculate metrics
    var numProjectsByDate = dateDim.group();
+   var totalDonationsByDate = dateDim.group().reduceSum(function(d) {
+       return d["total_donations"];
+   });
    var numProjectsByResourceType = resourceTypeDim.group();
    var numProjectsByPovertyLevel = povertyLevelDim.group();
    var numProjectsByFundingStatus = fundingStatus.group();
@@ -57,6 +60,21 @@ function makeGraphs(error, projectsJson, statesJSON) {
    var totalDonations = ndx.groupAll().reduceSum(function (d) {
        return d["total_donations"];
    });
+   var averageDonations = ndx.groupAll().reduce(
+       function (d, v) {
+           ++d.count;
+           d.total += v.total_donations;
+           return d;
+        },
+        function(d,v) {
+           --d.count;
+           d.total -= v.total_donations;
+           return d;
+        },
+        function() {
+            return {count:0, total:0};
+        }
+    );
 
    var max_state = totalDonationsByState.top(1)[0].value;
 
@@ -64,15 +82,20 @@ function makeGraphs(error, projectsJson, statesJSON) {
    var minDate = dateDim.bottom(1)[0]["date_posted"];
    var maxDate = dateDim.top(1)[0]["date_posted"];
 
+   var get_avg = function (d) {
+           return d.count > 0 ? d.total / d.count : 0;
+       }
+
    //Charts
    var timeChart = dc.barChart("#time-chart");
-   var dollarChart = dc.lineChart
+   var dollarChart = dc.lineChart("#dollar-chart");
    var resourceTypeChart = dc.rowChart("#resource-type-row-chart");
    var povertyLevelChart = dc.rowChart("#poverty-level-row-chart");
    var numberProjectsND = dc.numberDisplay("#number-projects-nd");
    var totalDonationsND = dc.numberDisplay("#total-donations-nd");
    var fundingStatusChart = dc.pieChart("#funding-chart");
    var statesChart = dc.geoChoroplethChart("#usa-map-chart");
+   var averageChart = dc.numberDisplay("#average-donations-nd");
 
 
    selectField = dc.selectMenu('#menu-select')
@@ -107,6 +130,18 @@ function makeGraphs(error, projectsJson, statesJSON) {
        .xAxisLabel("Year")
        .yAxis().ticks(4);
 
+ dollarChart
+       .width(800)
+       .height(200)
+       .margins({top: 10, right: 50, bottom: 30, left: 60})
+       .dimension(dateDim)
+       .group(totalDonationsByDate)
+       .transitionDuration(500)
+       .x(d3.time.scale().domain([minDate, maxDate]))
+       .elasticY(true)
+       .xAxisLabel("Year")
+       .yAxis().ticks(4);
+
    resourceTypeChart
        .width(300)
        .height(250)
@@ -130,7 +165,11 @@ function makeGraphs(error, projectsJson, statesJSON) {
        .group(numProjectsByFundingStatus);
 
 
-
+    averageChart
+        .formatNumber(d3.format("d"))
+       .valueAccessor(get_avg)
+       .group(averageDonations)
+       .formatNumber(d3.format(".3s"));
 
     statesChart
        .width(1000)
