@@ -119,7 +119,7 @@ function makeGraphs(error, projectsJson, statesJSON) {
        .formatNumber(d3.format(".3s"));
 
  timeChart
-       .width(800)
+       .width(600)
        .height(200)
        .margins({top: 10, right: 50, bottom: 30, left: 50})
        .dimension(dateDim)
@@ -131,7 +131,7 @@ function makeGraphs(error, projectsJson, statesJSON) {
        .yAxis().ticks(4);
 
  dollarChart
-       .width(800)
+       .width(600)
        .height(200)
        .margins({top: 10, right: 50, bottom: 30, left: 60})
        .dimension(dateDim)
