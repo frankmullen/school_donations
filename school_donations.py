@@ -3,13 +3,15 @@ from flask import render_template
 from flask import send_from_directory
 from pymongo import MongoClient
 import json
+import os
 
 app = Flask(__name__)
 
-MONGODB_HOST = 'localhost'
-MONGODB_PORT = 27017
-DBS_NAME = 'donorUSA'
-COLLECTION_NAME = 'projects'
+MONGODB_HOST = 'ds149069.mlab.com'
+MONGODB_PORT = 49069
+DBS_NAME = 'heroku_sl7272bv'
+MONGO_URI = 'mongodb://root:schoolheroku@ds149069.mlab.com:49069/heroku_sl7272bv'
+COLLECTION_NAME = 'opendata_projects_clean'
 FIELDS = {'funding_status': True, 'school_state': True, 'resource_type': True, 'poverty_level': True,
           'date_posted': True, 'total_donations': True, '_id': False}
 
@@ -21,9 +23,9 @@ def index():
 
 @app.route("/donorsUS/projects")
 def donor_projects():
-    connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
+    connection = MongoClient(MONGO_URI)
     collection = connection[DBS_NAME][COLLECTION_NAME]
-    projects = collection.find(projection=FIELDS, limit=55000)
+    projects = collection.find(projection=FIELDS, limit=20000)
     json_projects = []
     for project in projects:
         json_projects.append(project)
