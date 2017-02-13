@@ -130,18 +130,6 @@ function makeGraphs(error, projectsJson, statesJSON) {
        .xAxisLabel("Year")
        .yAxis().ticks(4);
 
- dollarChart
-       .width(600)
-       .height(200)
-       .margins({top: 10, right: 50, bottom: 30, left: 60})
-       .dimension(dateDim)
-       .group(totalDonationsByDate)
-       .transitionDuration(500)
-       .x(d3.time.scale().domain([minDate, maxDate]))
-       .elasticY(true)
-       .xAxisLabel("Year")
-       .yAxis().ticks(4);
-
    resourceTypeChart
        .width(300)
        .height(250)
@@ -189,6 +177,19 @@ function makeGraphs(error, projectsJson, statesJSON) {
                + "\n"
                + "Total Donations: " + Math.round(p["value"]) + " $";
    })
+
+    dollarChart
+        .width(600)
+        .height(200)
+        .margins({top: 10, right: 50, bottom: 30, left: 60})
+        .brushOn(false)
+        .dimension(dateDim)
+        .group(totalDonationsByDate)
+        .transitionDuration(500)
+        .x(d3.time.scale().domain([minDate, maxDate]))
+        .elasticY(true)
+        .xAxisLabel("Year")
+        .yAxis().ticks(4);
 
 
 
