@@ -187,6 +187,7 @@ function makeGraphs(error, projectsJson, statesJSON) {
         .group(totalDonationsByDate)
         .transitionDuration(500)
         .x(d3.time.scale().domain([minDate, maxDate]))
+        .rangeChart(timeChart)
         .elasticY(true)
         .xAxisLabel("Year")
         .yAxis().ticks(4);
