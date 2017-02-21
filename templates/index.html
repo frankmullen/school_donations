@@ -8,7 +8,7 @@
          filename='lib/css/keen-dashboards.css')}}">
    <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
    <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
-    <link rel="stylesheet" href="css/introjs.css" />
+    <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/introjs.css')}}"/>
  </head>
 <body class="application">
 
@@ -16,8 +16,13 @@
    <div class="container-fluid">
        <div class="navbar-header">
            <a class="navbar-brand" href="./">School Donations Dashboard</a>
-           <button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">Start Tour!</button>
-       </div>
+        </div>
+        <div class ="navbar-nav pull-right">
+            <div class ="right-buttons">
+                <button type="button" autofocus onclick="javascript:introJs().start();">Start Tour</button>
+                <button type="button" autofocus onclick="javascript:dc.filterAll();dc.renderAll();">Reset</button>
+            </div>
+        </div>
    </div>
 </div>
 
@@ -41,7 +46,7 @@
                                text-align: center;
                                padding-top: 12px;
                                padding-bottom: 0px;">
-                               <div id="number-projects-nd"></div>
+                               <div id="number-projects-nd" data-step="1" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
                            </div>
                        </div>
                    </div>
@@ -54,7 +59,7 @@
                                Total Donations (USD)
                            </div>
                            <div class="chart-stage">
-                               <div id="total-donations-nd"></div>
+                               <div id="total-donations-nd" data-step="2" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
                            </div>
                        </div>
                    </div>
@@ -67,7 +72,7 @@
                                Average Per Donation (USD)
                            </div>
                            <div class="chart-stage">
-                               <div id="average-donations-nd"></div>
+                               <div id="average-donations-nd" data-step="3" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
                            </div>
                        </div>
                    </div>
@@ -79,7 +84,7 @@
                     Distribution of Donations
                   </div>
                   <div class="chart-stage">
-                    <div id="usa-map-chart"></div>
+                    <div id="usa-map-chart" data-step="5" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
                   </div>
                 </div>
               </div>
@@ -94,7 +99,7 @@
                            Number of Donations (Range Chart To Filter All Dashboard Components)
                        </div>
                        <div class="chart-stage">
-                           <div id="time-chart"></div>
+                           <div id="time-chart" data-step="4" data-intro="The description that you want" style="font-weight: normal" data-position="left"></div>
                        </div>
                    </div>
                </div>
@@ -107,7 +112,7 @@
                            Total Donations (US$)
                        </div>
                        <div class="chart-stage">
-                           <div id="dollar-chart"></div>
+                           <div id="dollar-chart" data-step="6" data-intro="The description that you want" style="font-weight: normal" data-position="left"></div>
                        </div>
                    </div>
                </div>
@@ -123,7 +128,7 @@
                            Donation State
                        </div>
                        <div class="chart-stage">
-                           <div id="menu-select"></div>
+                           <div id="menu-select" data-step="7" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
                        </div>
                    </div>
                </div>
@@ -135,7 +140,7 @@
                            Poverty Level
                        </div>
                        <div class="chart-stage">
-                           <div id="poverty-level-row-chart"></div>
+                           <div id="poverty-level-row-chart" data-step="8" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
                        </div>
                    </div>
                </div>
@@ -149,7 +154,7 @@
                            Resources Type
                        </div>
                        <div class="chart-stage">
-                           <div id="resource-type-row-chart"></div>
+                           <div id="resource-type-row-chart" data-step="9" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
                        </div>
                    </div>
                </div>
@@ -162,7 +167,7 @@
                            Funding Status
                        </div>
                        <div class="chart-stage">
-                           <div id="funding-chart"></div>
+                           <div id="funding-chart" data-step="10" data-intro="The description that you want" style="font-weight: normal" data-position="left"></div>
                        </div>
                    </div>
                </div>
@@ -181,7 +186,7 @@
 </div>
 
 <hr>
-<p class="small text-muted"> Data viz &#9829; from Code Institute</a></p>
+<p class="small text-muted"> Data viz &#9829; from Code Institute & Frank Mullen</a></p>
 
 </div>
 <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
@@ -193,6 +198,6 @@
 
 <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
 <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
-<script src="../static/js/intro.js" type="text/javascript"></script>
+<script src="{{ url_for ('static', filename='lib/js/intro.js')}}"></script>
 </body>
 </html>

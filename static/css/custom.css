@@ -62,3 +62,13 @@
    width:1280px;
 }
 
+.intro-button {
+   display:inline-block;
+   margin-top:10px;
+}
+
+.right-buttons {
+   display:inline-block;
+   margin-top:10px;
+   margin-right:10px;
+}
