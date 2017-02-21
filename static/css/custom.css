@@ -1,15 +1,18 @@
 #number-projects-nd {
-   font-size: 60px;
+   font-size: 58px;
 }
 
 #total-donations-nd {
-   font-size: 60px;
+   font-size: 58px;
 }
 
 #average-donations-nd {
-   font-size: 60px
+   font-size: 58px
 }
 
+#students-reached-nd {
+   font-size: 58px
+}
 
 .dc-chart g.row text {
    fill: black;
@@ -59,7 +62,7 @@
 }
 
 #outer {
-   width:1280px;
+   width:1220px;
 }
 
 .intro-button {
@@ -71,4 +74,15 @@
    display:inline-block;
    margin-top:10px;
    margin-right:10px;
+}
+
+.green-back{
+    background: #33CC99;
+   position: relative;
+   font-size: 29px;
+   color: white;
+   vertical-align: middle;
+   text-align: center;
+   padding-top: 12px;
+   padding-bottom: 0px;
 }

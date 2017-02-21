@@ -38,15 +38,8 @@
                            <div class="chart-title">
                                Total Number of Donations
                            </div>
-                           <div class="chart-stage" style=" background: #33CC99;
-                               position: relative;
-                               font-size: 29px;
-                               color: white;
-                               vertical-align: middle;
-                               text-align: center;
-                               padding-top: 12px;
-                               padding-bottom: 0px;">
-                               <div id="number-projects-nd" data-step="1" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
+                           <div class="chart-stage green-back">
+                               <div id="number-projects-nd" data-step="1" data-intro="The total number of donations received - this is filtered by your selected state or time period." style="font-weight: normal" data-position="right"></div>
                            </div>
                        </div>
                    </div>
@@ -59,7 +52,7 @@
                                Total Donations (USD)
                            </div>
                            <div class="chart-stage">
-                               <div id="total-donations-nd" data-step="2" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
+                               <div id="total-donations-nd" data-step="2" data-intro="The total dollar amount of donations received, also filtered by your choices." style="font-weight: normal" data-position="right"></div>
                            </div>
                        </div>
                    </div>
@@ -69,10 +62,10 @@
                    <div class="col-sm-4">
                        <div class="chart-wrapper">
                            <div class="chart-title">
-                               Average Per Donation (USD)
+                               Average Donation (USD)
                            </div>
                            <div class="chart-stage">
-                               <div id="average-donations-nd" data-step="3" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
+                               <div id="average-donations-nd" data-step="3" data-intro="The average dollar amount per donation." style="font-weight: normal" data-position="right"></div>
                            </div>
                        </div>
                    </div>
@@ -84,7 +77,7 @@
                     Distribution of Donations
                   </div>
                   <div class="chart-stage">
-                    <div id="usa-map-chart" data-step="5" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
+                    <div id="usa-map-chart" data-step="5" data-intro="Interactive map showing the distribution of donations by US state. The darker shades of blue are the higher donations. Click on the states to filter the dashboard." style="font-weight: normal" data-position="right"></div>
                   </div>
                 </div>
               </div>
@@ -99,7 +92,7 @@
                            Number of Donations (Range Chart To Filter All Dashboard Components)
                        </div>
                        <div class="chart-stage">
-                           <div id="time-chart" data-step="4" data-intro="The description that you want" style="font-weight: normal" data-position="left"></div>
+                           <div id="time-chart" data-step="4" data-intro="Number of donations by time. This is the chart you can use to filter the rest of the dashboard by time period. Simply click on the table and drag the handles." style="font-weight: normal" data-position="left"></div>
                        </div>
                    </div>
                </div>
@@ -112,7 +105,7 @@
                            Total Donations (US$) vs Number of Students Reached
                        </div>
                        <div class="chart-stage">
-                           <div id="dollar-chart" data-step="6" data-intro="The description that you want" style="font-weight: normal" data-position="left"></div>
+                           <div id="dollar-chart" data-step="6" data-intro="Composite chart showing the total dollar amount of donations and the number of students reached. This chart is filtered based on your choice of state or time period." style="font-weight: normal" data-position="left"></div>
                        </div>
                    </div>
                </div>
@@ -121,19 +114,35 @@
        </div>
        <div class="row">
            <div class="col-sm-6">
-               <!-- menu select -->
                <div class="col-sm-6">
-
+                   <!-- menu select -->
+                   <div class="col-sm-12">
                        <div class="chart-wrapper">
                            <div class="chart-title">
                                Donation State
                            </div>
                            <div class="chart-stage">
-                               <div id="menu-select" data-step="7" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
+                               <div id="menu-select" data-step="7" data-intro="Pick any state by name to see the donations for that state." style="font-weight: normal" data-position="right"></div>
                            </div>
                        </div>
+                   </div>
+                   <!-- menu select -->
+
+                   <!-- metric 4 -->
+                   <div class="col-sm-12">
+                       <div class="chart-wrapper">
+                           <div class="chart-title">
+                               Number of Students Reached
+                           </div>
+                           <div class="chart-stage green-back">
+                               <div id="students-reached-nd" data-step="8" data-intro="The total number of students reached." style="font-weight: normal" data-position="right"></div>
+                           </div>
+                       </div>
+                   </div>
+                   <!-- metric 4 -->
+
                </div>
-               <!-- menu select -->
+
        <!-- Poverty -->
                <div class="col-sm-6">
                    <div class="chart-wrapper">
@@ -141,7 +150,7 @@
                            Poverty Level
                        </div>
                        <div class="chart-stage">
-                           <div id="poverty-level-row-chart" data-step="8" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
+                           <div id="poverty-level-row-chart" data-step="9" data-intro="Chart showing the donations per poverty level." style="font-weight: normal" data-position="right"></div>
                        </div>
                    </div>
                </div>
@@ -155,7 +164,7 @@
                            Resources Type
                        </div>
                        <div class="chart-stage">
-                           <div id="resource-type-row-chart" data-step="9" data-intro="The description that you want" style="font-weight: normal" data-position="right"></div>
+                           <div id="resource-type-row-chart" data-step="10" data-intro="Chart showing the donations by resource type." style="font-weight: normal" data-position="right"></div>
                        </div>
                    </div>
                </div>
@@ -168,7 +177,7 @@
                            Funding Status
                        </div>
                        <div class="chart-stage">
-                           <div id="funding-chart" data-step="10" data-intro="The description that you want" style="font-weight: normal" data-position="left"></div>
+                           <div id="funding-chart" data-step="11" data-intro="Chart showing the donations by funding status." style="font-weight: normal" data-position="left"></div>
                        </div>
                    </div>
                </div>

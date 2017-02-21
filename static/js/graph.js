@@ -66,6 +66,11 @@ function makeGraphs(error, projectsJson, statesJSON) {
    var totalDonations = ndx.groupAll().reduceSum(function (d) {
        return d["total_donations"];
    });
+
+   var studentsReached = ndx.groupAll().reduceSum(function (d) {
+       return d["students_reached"];
+   });
+
    var averageDonations = ndx.groupAll().reduce(
        function (d, v) {
            ++d.count;
@@ -102,6 +107,7 @@ function makeGraphs(error, projectsJson, statesJSON) {
    var fundingStatusChart = dc.pieChart("#funding-chart");
    var statesChart = dc.geoChoroplethChart("#usa-map-chart");
    var averageChart = dc.numberDisplay("#average-donations-nd");
+   var studentsReachedND = dc.numberDisplay('#students-reached-nd');
 
 
    selectField = dc.selectMenu('#menu-select')
@@ -123,6 +129,13 @@ function makeGraphs(error, projectsJson, statesJSON) {
        })
        .group(totalDonations)
        .formatNumber(d3.format(".3s"));
+
+   studentsReachedND
+       .formatNumber(d3.format("d"))
+       .valueAccessor(function (d) {
+           return d;
+       })
+       .group(studentsReached)
 
  timeChart
        .width(600)
@@ -190,16 +203,17 @@ function makeGraphs(error, projectsJson, statesJSON) {
        .height(200)
        .margins({top: 10, right: 50, bottom: 30, left: 50})
        .x(d3.time.scale().domain([minDate, maxDate]))
+        .legend(dc.legend().x(70).y(10).itemHeight(10).gap(5))
         .brushOn(false)
         .rangeChart(timeChart)
         .compose([
             dc.lineChart(composite)
                 .dimension(dateDim)
                 .colors('rgb(61,196,130)')
-                .group(totalDonationsByDate),
+                .group(totalDonationsByDate, 'Total Donations'),
             dc.lineChart(composite)
                 .dimension(dateDim)
-                .group(studentsReachedByDate)
+                .group(studentsReachedByDate, 'Number of Students Reached')
                 .colors('rgb(15,71,173)')
             ])
         .elasticY(true)
