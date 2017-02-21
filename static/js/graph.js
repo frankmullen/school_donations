@@ -40,6 +40,9 @@ function makeGraphs(error, projectsJson, statesJSON) {
    var fundingStatus = ndx.dimension(function (d) {
        return d["funding_status"];
    });
+   var reachedDim = ndx.dimension(function(d) {
+       return d["students_reached"]
+   })
 
 
    //Calculate metrics
@@ -47,6 +50,9 @@ function makeGraphs(error, projectsJson, statesJSON) {
    var totalDonationsByDate = dateDim.group().reduceSum(function(d) {
        return d["total_donations"];
    });
+   var studentsReachedByDate = dateDim.group().reduceSum(function(d) {
+       return d["students_reached"];
+   })
    var numProjectsByResourceType = resourceTypeDim.group();
    var numProjectsByPovertyLevel = povertyLevelDim.group();
    var numProjectsByFundingStatus = fundingStatus.group();
@@ -88,7 +94,7 @@ function makeGraphs(error, projectsJson, statesJSON) {
 
    //Charts
    var timeChart = dc.barChart("#time-chart");
-   var dollarChart = dc.lineChart("#dollar-chart");
+   var composite = dc.compositeChart("#dollar-chart");
    var resourceTypeChart = dc.rowChart("#resource-type-row-chart");
    var povertyLevelChart = dc.rowChart("#poverty-level-row-chart");
    var numberProjectsND = dc.numberDisplay("#number-projects-nd");
@@ -176,18 +182,26 @@ function makeGraphs(error, projectsJson, statesJSON) {
            return "State: " + p["key"]
                + "\n"
                + "Total Donations: " + Math.round(p["value"]) + " $";
-   })
+   });
 
-    dollarChart
-        .width(600)
-        .height(200)
-        .margins({top: 10, right: 50, bottom: 30, left: 60})
+
+    composite
+       .width(600)
+       .height(200)
+       .margins({top: 10, right: 50, bottom: 30, left: 50})
+       .x(d3.time.scale().domain([minDate, maxDate]))
         .brushOn(false)
-        .dimension(dateDim)
-        .group(totalDonationsByDate)
-        .transitionDuration(500)
-        .x(d3.time.scale().domain([minDate, maxDate]))
         .rangeChart(timeChart)
+        .compose([
+            dc.lineChart(composite)
+                .dimension(dateDim)
+                .colors('rgb(61,196,130)')
+                .group(totalDonationsByDate),
+            dc.lineChart(composite)
+                .dimension(dateDim)
+                .group(studentsReachedByDate)
+                .colors('rgb(15,71,173)')
+            ])
         .elasticY(true)
         .xAxisLabel("Year")
         .yAxis().ticks(4);

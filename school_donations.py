@@ -14,7 +14,7 @@ MONGODB_PORT = os.environ.get('MONGODB_PORT')
 
 COLLECTION_NAME = 'opendata_projects_clean'
 FIELDS = {'funding_status': True, 'school_state': True, 'resource_type': True, 'poverty_level': True,
-          'date_posted': True, 'total_donations': True, '_id': False}
+          'date_posted': True, 'total_donations': True, 'students_reached': True, '_id': False}
 
 
 @app.route("/")
