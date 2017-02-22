@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e832273d-449e-4149-83eb-aac846944b01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/graph.js" afterPath="$PROJECT_DIR$/static/js/graph.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
@@ -15,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/school_donations$school_donations.coverage" NAME="school_donations Coverage Results" MODIFIED="1487780133721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/school_donations$school_donations.coverage" NAME="school_donations Coverage Results" MODIFIED="1487784808245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -45,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="graph.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1695">
-              <caret line="177" column="31" lean-forward="true" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
+            <state relative-caret-position="240">
+              <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -58,18 +56,18 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="251">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="186" column="3" lean-forward="false" selection-start-line="186" selection-start-column="3" selection-end-line="186" selection-end-column="3" />
+            <state relative-caret-position="197">
+              <caret line="198" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -598,7 +596,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/static/js/graph.js</url>
-          <line>182</line>
+          <line>181</line>
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="1" />
@@ -951,11 +949,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/school_donations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="240">
+          <caret line="16" column="82" lean-forward="false" selection-start-line="16" selection-start-column="82" selection-end-line="16" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -967,28 +967,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/static/js/graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="186" column="3" lean-forward="false" selection-start-line="186" selection-start-column="3" selection-end-line="186" selection-end-column="3" />
+        <state relative-caret-position="240">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/school_donations.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="82" lean-forward="false" selection-start-line="16" selection-start-column="82" selection-end-line="16" selection-end-column="82" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="251">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/graph.js">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1695">
-          <caret line="177" column="31" lean-forward="true" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
+        <state relative-caret-position="197">
+          <caret line="198" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
           <folding />
         </state>
       </provider>

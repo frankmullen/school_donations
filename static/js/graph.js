@@ -16,7 +16,6 @@ function makeGraphs(error, projectsJson, statesJSON) {
        d["total_donations"] = +d["total_donations"];
    });
 
-
    //Create a Crossfilter instance
    var ndx = crossfilter(donorsUSProjects);
 
@@ -137,7 +136,7 @@ function makeGraphs(error, projectsJson, statesJSON) {
        })
        .group(studentsReached)
 
- timeChart
+    timeChart
        .width(600)
        .height(200)
        .margins({top: 10, right: 50, bottom: 30, left: 50})
@@ -196,7 +195,6 @@ function makeGraphs(error, projectsJson, statesJSON) {
                + "\n"
                + "Total Donations: " + Math.round(p["value"]) + " $";
    });
-
 
     composite
        .width(600)
