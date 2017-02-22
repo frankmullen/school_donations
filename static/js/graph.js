@@ -85,7 +85,7 @@ function makeGraphs(error, projectsJson, statesJSON) {
         function() {
             return {count:0, total:0};
         }
-    );
+   );
 
    var max_state = totalDonationsByState.top(1)[0].value;
 
