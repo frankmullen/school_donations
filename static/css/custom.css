@@ -86,3 +86,28 @@
    padding-top: 12px;
    padding-bottom: 0px;
 }
+
+/* Mobile screen styling */
+@media screen and (max-width: 480px), screen and (max-device-width: 480px){
+   #outer{
+      padding-top:50px
+   }
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px), screen and (min-device-width: 481px) and (max-device-width: 768px) {
+
+
+
+
+
+
+
+}
+
+/* Mobile screen styling */
+@media screen and (max-width: 768px){
+
+
+
+}

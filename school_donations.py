@@ -11,6 +11,10 @@ DBS_NAME = os.environ.get('DBS_NAME')
 MONGO_URI = os.environ.get('MONGO_URI')
 MONGODB_HOST = os.environ.get('MONGODB_HOST')
 MONGODB_PORT = os.environ.get('MONGODB_PORT')
+print DBS_NAME
+print MONGO_URI
+print MONGODB_HOST
+print MONGODB_PORT
 
 COLLECTION_NAME = 'opendata_projects_clean'
 FIELDS = {'funding_status': True, 'school_state': True, 'resource_type': True, 'poverty_level': True,
