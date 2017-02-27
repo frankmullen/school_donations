@@ -37,5 +37,9 @@ Finally, it was surprisingly tricky to calculate the average donation amount. I 
 
 Manual testing was carried out to ensure all the dashboard items filtered the way they should.
 
+## Outstanding Issue
+
+The responsive design needs to be tweaked to look better on mobile. The chart items display vertically but are not shrunk down to the size of the screen.
+
 
 
